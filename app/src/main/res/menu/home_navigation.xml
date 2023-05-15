@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/home_navigation"
+        android:icon="@drawable/ic_home"
+        app:cnb_backgroundColor="?attr/colorPrimary"/>
+
+    <item
+        android:id="@+id/nav_notifications"
+        android:title="@string/notifications_navigation"
+        android:icon="@drawable/ic_notifications"
+        app:cnb_backgroundColor="?attr/colorPrimary"/>
+
+    <item
+        android:id="@+id/nav_featured"
+        android:title="@string/featured_navigation"
+        android:icon="@drawable/ic_featured"
+        app:cnb_backgroundColor="?attr/colorPrimary"/>
+</menu>

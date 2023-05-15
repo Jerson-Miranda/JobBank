@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSecondary"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:id="@+id/clDrawerHeader">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile_drawer_header"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_user"
+        app:civ_border_color="?attr/colorOnSecondary"
+        app:civ_border_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName_drawer_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Nombre de usuario"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/subtitle"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile_drawer_header" />
+
+    <TextView
+        android:id="@+id/tvEmail_drawer_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="correo@ejemplo.com"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName_drawer_header" />
+
+    <Button
+        android:id="@+id/btnProfile_drawer_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:padding="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/profile_drawer_navigation"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/text_1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail_drawer_header" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp"
+        android:background="?attr/colorOnSecondary"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile_drawer_header"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <androidx.constraintlayout.utils.widget.MotionButton
+            android:id="@+id/btnGroups_drawer_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_groups"
+            android:drawablePadding="16dp"
+            android:padding="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/groups_drawer_navigation"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.utils.widget.MotionButton
+            android:id="@+id/btnEvents_drawer_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_events"
+            android:drawablePadding="16dp"
+            android:padding="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/events_drawer_navigation"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnGroups_drawer_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

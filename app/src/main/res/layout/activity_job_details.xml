@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSecondary"
+    android:padding="16dp"
+    tools:context=".view.Job_Details">
+
+    <TextView
+        android:id="@+id/tvTitle_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title Job" />
+
+    <ImageButton
+        android:id="@+id/ibBusiness_job_details"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_business"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle_job_details" />
+
+    <TextView
+        android:id="@+id/tvBusiness_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/text_1"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/ibArchive_job_details"
+        app:layout_constraintStart_toEndOf="@+id/ibBusiness_job_details"
+        app:layout_constraintTop_toTopOf="@+id/ibBusiness_job_details"
+        tools:text="Name Business" />
+
+    <TextView
+        android:id="@+id/tvAddress_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_1"
+        app:layout_constraintEnd_toStartOf="@+id/ibArchive_job_details"
+        app:layout_constraintStart_toEndOf="@+id/ibBusiness_job_details"
+        app:layout_constraintTop_toBottomOf="@+id/tvBusiness_job_details"
+        tools:text="Address" />
+
+    <TextView
+        android:id="@+id/tvTime_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/text_2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress_job_details"
+        tools:text="0 hours ago " />
+
+    <TextView
+        android:id="@+id/tvApplicants_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/text_2"
+        app:layout_constraintStart_toEndOf="@+id/tvTime_job_details"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddress_job_details"
+        tools:text=": 0 applications" />
+
+    <ImageButton
+        android:id="@+id/ibArchive_job_details"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_archive_false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle_job_details" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvApplicants_job_details">
+
+        <ImageView
+            android:id="@+id/ibType_job_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_type_job"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvType_job_details"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintBottom_toBottomOf="@+id/ibType_job_details"
+            app:layout_constraintStart_toEndOf="@+id/ibType_job_details"
+            app:layout_constraintTop_toTopOf="@+id/ibType_job_details"
+            tools:text="Type job" />
+
+        <ImageView
+            android:id="@+id/ibAvailable_job_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ibType_job_details" />
+
+        <TextView
+            android:id="@+id/tvAvailable_job_details"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintBottom_toBottomOf="@+id/ibAvailable_job_details"
+            app:layout_constraintStart_toEndOf="@+id/ibType_job_details"
+            app:layout_constraintTop_toTopOf="@+id/ibAvailable_job_details"
+            tools:text="00 jobs available" />
+
+        <ImageView
+            android:id="@+id/ibStudents_job_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_student"
+            app:layout_constraintStart_toEndOf="@+id/tvAvailable_job_details"
+            app:layout_constraintTop_toBottomOf="@+id/ibSpeciality_job_details" />
+
+        <TextView
+            android:id="@+id/tvStudents_job_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintBottom_toBottomOf="@+id/ibStudents_job_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ibStudents_job_details"
+            app:layout_constraintTop_toTopOf="@+id/ibStudents_job_details"
+            tools:text="For students" />
+
+        <ImageView
+            android:id="@+id/ibSpeciality_job_details"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_speciality"
+            app:layout_constraintStart_toEndOf="@+id/tvType_job_details"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSpeciality_job_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintBottom_toBottomOf="@+id/ibType_job_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ibSpeciality_job_details"
+            app:layout_constraintTop_toTopOf="@+id/ibType_job_details"
+            tools:text="Speciality" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tviDescription_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/description_job_details"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/text_2"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+    <TextView
+        android:id="@+id/tvDescription_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/text_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tviDescription_job_details"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida felis sit amet ante dapibus imperdiet. Duis viverra ac risus ut accumsan. Fusce suscipit vulputate dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus aenean." />
+
+    <TextView
+        android:id="@+id/tvIdCreatedBy_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription_job_details"/>
+
+    <TextView
+        android:id="@+id/tvCreatedBy_job_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAlignment="textEnd"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/text_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescription_job_details"
+        tools:text="Created by: " />
+
+    <Button
+        android:id="@+id/btnApply_job_details"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="?attr/colorPrimaryVariant"
+        android:drawableEnd="@drawable/ic_apply"
+        android:drawablePadding="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btn1_job_details"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave_job_details"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCreatedBy_job_details" />
+
+    <Button
+        android:id="@+id/btnSave_job_details"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:stateListAnimator="@null"
+        android:text="@string/btn2_job_details"
+        android:textAllCaps="true"
+        android:textColor="?attr/colorPrimaryVariant"
+        android:textSize="@dimen/btn"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnApply_job_details"
+        app:layout_constraintTop_toBottomOf="@+id/tvCreatedBy_job_details" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

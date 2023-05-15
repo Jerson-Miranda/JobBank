@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1097851767382",
+    "project_id": "job-bank-5a6e7",
+    "storage_bucket": "job-bank-5a6e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097851767382:android:3157f729d17cbfd58809f7",
+        "android_client_info": {
+          "package_name": "com.example.jobbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097851767382-i9986cr7edj41erhcqi97jh87o6sjbta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6QYIKwW6fhht4WgPcNuN-wqI9dj1uTX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097851767382-i9986cr7edj41erhcqi97jh87o6sjbta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

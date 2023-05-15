@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSecondaryVariant"
+    tools:context=".view.Company">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:padding="16dp"
+        android:background="?attr/colorSecondary"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/ibBack_company"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etSearch_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/txt_design"
+            android:drawableStart="@drawable/ic_search_micro"
+            android:drawablePadding="4dp"
+            android:hint="@string/search_company"
+            android:padding="8dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_1"
+            app:layout_constraintEnd_toStartOf="@+id/ibSetting_company"
+            app:layout_constraintStart_toEndOf="@+id/ibBack_company"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ibSetting_company"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:background="?attr/colorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+            <ImageView
+                android:id="@+id/ivBanner_company"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="?attr/colorSecondaryVariant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibEditBanner_company"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                android:background="@drawable/ib_design"
+                android:src="@drawable/ic_camera"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile_company"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="-50dp"
+                android:src="?attr/colorSecondaryVariant"
+                app:civ_border_color="?attr/colorSecondary"
+                app:civ_border_width="3dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBanner_company" />
+
+            <ProgressBar
+                android:id="@+id/pbProfile_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/ivProfile_company"
+                app:layout_constraintEnd_toEndOf="@+id/ivProfile_company"
+                app:layout_constraintStart_toStartOf="@+id/ivProfile_company"
+                app:layout_constraintTop_toTopOf="@+id/ivProfile_company" />
+
+            <ProgressBar
+                android:id="@+id/pbBanner_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBanner_company"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivBanner_company" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ibEditProfile_company"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ib_design"
+                android:src="@drawable/ic_add"
+                android:visibility="gone"
+                app:civ_border_width="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivProfile_company"
+                app:layout_constraintEnd_toEndOf="@+id/ivProfile_company" />
+
+            <TextView
+                android:id="@+id/tvUsername_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProfile_company"
+                tools:text="Company name" />
+
+            <TextView
+                android:id="@+id/tvSpeciality_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/text_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tviFollowers_company"
+                tools:text="Speciality" />
+
+            <TextView
+                android:id="@+id/tvAddressB_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="@dimen/text_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpeciality_company"
+                tools:text="Address" />
+
+            <TextView
+                android:id="@+id/tviFollowers_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=" followers"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/text_1"
+                app:layout_constraintStart_toEndOf="@+id/tvFollowers_company"
+                app:layout_constraintTop_toBottomOf="@+id/tvUsername_company" />
+
+            <TextView
+                android:id="@+id/tvFollowers_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/text_1"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/tviFollowers_company"
+                app:layout_constraintStart_toStartOf="@+id/tvUsername_company"
+                app:layout_constraintTop_toTopOf="@+id/tviFollowers_company"
+                tools:text="0" />
+
+            <ImageButton
+                android:id="@+id/ibEditProfileData_company"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBanner_company" />
+
+            <Button
+                android:id="@+id/btnFollow_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="?attr/colorPrimaryVariant"
+                android:stateListAnimator="@null"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/btn"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/btnMesagge_company"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddressB_company"
+                tools:text="Follow" />
+
+            <Button
+                android:id="@+id/btnMesagge_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="?attr/colorSecondaryVariant"
+                android:stateListAnimator="@null"
+                android:text="@string/message_company"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorPrimaryVariant"
+                android:textSize="@dimen/btn"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnFollow_company"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddressB_company" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

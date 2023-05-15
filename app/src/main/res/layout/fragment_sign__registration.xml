@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSecondary"
+    tools:context=".view.fragment.Sign_Registration">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/registration"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
+            app:layout_constraintEnd_toStartOf="@+id/guideline13"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="60"
+            android:progressBackgroundTint="?attr/colorOnSecondary"
+            android:progressTint="?attr/colorPrimary"
+            app:layout_constraintEnd_toStartOf="@+id/guideline13"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <TextView
+            android:id="@+id/tvTitle_presentation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/title_sign_registration"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+        <TextView
+            android:id="@+id/tvSubtitle_presentation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/subtitle_sign_registration"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle_presentation" />
+
+        <EditText
+            android:id="@+id/etEmail_sign_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/txt_design"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="14dp"
+            android:hint="@string/txt1_sign_registration"
+            android:inputType="textEmailAddress"
+            android:padding="14dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_1"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubtitle_presentation" />
+
+        <EditText
+            android:id="@+id/etPhone_sign_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/txt_design"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="14dp"
+            android:hint="@string/txt2_sign_registration"
+            android:inputType="phone"
+            android:padding="14dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_1"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail_sign_registration" />
+
+        <EditText
+            android:id="@+id/etPassword_sign_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/txt_design"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="14dp"
+            android:hint="@string/txt3_sign_registration"
+            android:inputType="textPassword"
+            android:padding="14dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_1"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPhone_sign_registration" />
+
+        <EditText
+            android:id="@+id/etCPassword_sign_registration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/txt_design"
+            android:drawableStart="@drawable/ic_password"
+            android:drawablePadding="14dp"
+            android:hint="@string/txt4_sign_registration"
+            android:inputType="textPassword"
+            android:padding="14dp"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_1"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword_sign_registration" />
+
+        <Button
+            android:id="@+id/btnContinue_sign_registration"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:stateListAnimator="@null"
+            android:text="@string/btn_sign_registration"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/btn"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

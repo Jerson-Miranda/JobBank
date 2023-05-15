@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="8dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="8dp"
+    android:background="?attr/colorSecondary"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorSecondary">
+
+        <ImageView
+            android:id="@+id/ivBanner_item_company"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile_item_company"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="-30dp"
+            android:src="@drawable/ic_user"
+            app:civ_border_color="?attr/colorSecondaryVariant"
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBanner_item_company" />
+
+        <TextView
+            android:id="@+id/tvName_item_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivProfile_item_company"
+            app:layout_constraintTop_toBottomOf="@+id/ivBanner_item_company"
+            tools:text="Username" />
+
+        <TextView
+            android:id="@+id/tvId_item_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            android:visibility="gone"
+            android:textSize="@dimen/text_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvSpeciality_item_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvName_item_company"
+            app:layout_constraintTop_toBottomOf="@+id/tvName_item_company"
+            tools:text="Speciality" />
+
+        <Button
+            android:id="@+id/btnFollow_job_details"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="?attr/colorSecondaryVariant"
+            android:stateListAnimator="@null"
+            android:text="Follow"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="@dimen/btn"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeciality_item_company" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

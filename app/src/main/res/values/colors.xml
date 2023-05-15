@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lilac">#a2aad6</color>
+    <color name="lilac_two">#946f9b</color>
+    <color name="ligth_gray">#B5B4B4</color>
+    <color name="ligth_gray_2">#F2F2F2</color>
+    <color name="ligth_gray_3">#808080</color>
+    <color name="gray">#656565</color>
+    <color name="gray_2">#323232</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF4343</color>
+    <color name="blue">#5C5CFF</color>
+</resources>

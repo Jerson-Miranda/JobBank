@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.JobBank" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/lilac</item>
+        <item name="colorPrimaryVariant">@color/lilac_two</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimarySurface">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/ligth_gray_2</item>
+        <item name="colorOnSecondary">@color/ligth_gray</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <!-- Text -->
+        <item name="fontFamily">@font/roboto</item>
+        <!-- Transitions -->
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="MySeekBarStyle" parent="@android:style/Widget.SeekBar">
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:minHeight">8dp</item>
+        <item name="android:maxHeight">8dp</item>
+    </style>
+
+
+</resources>

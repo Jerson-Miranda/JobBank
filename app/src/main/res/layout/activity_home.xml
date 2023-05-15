@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.Home"
+        android:id="@+id/fragment_container"
+        android:background="?attr/colorSecondary">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@id/home_navigation"
+            app:layout_anchorGravity="bottom|right"
+            android:visibility="gone"
+            android:backgroundTint="?attr/colorPrimary"
+            android:layout_marginBottom="80dp"
+            android:layout_marginEnd="20dp"
+            android:clickable="true"
+            app:tint="@color/white"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:srcCompat="@drawable/ic_add" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/home_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/home_navigation" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- Menú de navegación -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorSecondary"
+        app:headerLayout="@layout/drawer_header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_gravity="bottom">
+
+            <View
+                android:id="@+id/vLine"
+                android:layout_width="match_parent"
+                android:layout_height=".5dp"
+                android:background="?attr/colorOnSecondary"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <androidx.constraintlayout.utils.widget.MotionButton
+                android:id="@+id/btnSignout_home"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:padding="0dp"
+                android:layout_marginTop="8dp"
+                android:stateListAnimator="@null"
+                android:drawableStart="@drawable/ic_settings"
+                android:drawablePadding="16dp"
+                android:text="@string/settings_drawer_navigation"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/subtitle"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vLine" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

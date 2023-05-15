@@ -1,0 +1,121 @@
+<resources>
+    <string name="app_name">Job Bank</string>
+    <!-- Presentation  -->
+    <string name="subtitle_presentation">Connect with your future career: find your ideal job with our job board app.</string>
+    <string name="login_one_presentation">Already have an account?</string>
+    <string name="login_two_presentation">Log in</string>
+    <string name="get_started_presentation">Get started</string>
+    <!-- Login  -->
+    <string name="title_login">Welcome Back!</string>
+    <string name="subtitle_login">Log in to your existant account</string>
+    <string name="username_login">Username</string>
+    <string name="password_login">Password</string>
+    <string name="forgot_login">Forgot password?</string>
+    <string name="btn_login">Log In</string>
+    <string name="or_login">Or connect using</string>
+    <string name="google_login">Google</string>
+    <string name="facebook_login">Facebook</string>
+    <string name="signup_one_login">Don`t have account?</string>
+    <string name="signup_two_login">Sign Up</string>
+    <!-- Sign_Type_User  -->
+    <string name="title_sign_type">Who are you?</string>
+    <string name="subtitle_sign_type">Select the option that best suits you</string>
+    <string name="label1_sign_type">Worker</string>
+    <string name="label2_sign_type">Student</string>
+    <string name="label3_sign_type">Company</string>
+    <!-- Sign_Data  -->
+    <string name="title_sign_fullname">Lets Get Started!</string>
+    <string name="subtitle_sign_fullname">Enter your full name</string>
+    <string name="txt1_sign_fullname">First name</string>
+    <string name="txt2_sign_fullname">Last name</string>
+    <string name="label_sign_fullname">By clicking Next Step, you agree to the Job Bank User Agreement, Privacy Policy, and Cookie Policy. For phone number signups we will send a verfication code via email</string>
+    <string name="btn_sign_fullname">Next step</string>
+    <!-- Sign_Data_Job  -->
+    <string name="title_sign_data_job">About you</string>
+    <string name="subtitle_sign_data_job">Your profile helps you discover people and opportunities</string>
+    <string name="txt2_sign_data_job">Location</string>
+    <string name="txt3_sign_data_job">Speciality</string>
+    <string name="txt4_sign_data_job">Website</string>
+    <!-- Sign_Registration -->
+    <string name="title_sign_registration">Registration</string>
+    <string name="subtitle_sign_registration">Enter your email address, your phone and create a password</string>
+    <string name="txt1_sign_registration">Email</string>
+    <string name="txt2_sign_registration">Phone</string>
+    <string name="txt3_sign_registration">Password</string>
+    <string name="txt4_sign_registration">Confirm Password</string>
+    <string name="btn_sign_registration">Verify email</string>
+    <!-- Sign_Verification -->
+    <string name="title_sign_verification">Verify your email</string>
+    <string name="label3_sign_verification">Thanks for signing up for our app! In order to continue, please check your email and confirm the link we have sent to your inbox.</string>
+    <string name="txt1_sign_verification">_</string>
+    <string name="label1_sign_verification">Didnt receive the email?</string>
+    <string name="label2_sign_verification">Resend</string>
+    <string name="btn_sign_verification">Check verification</string>
+    <!-- Sign_Sucessfull -->
+    <string name="title_sign_sucessfull">Account Successfully Created</string>
+    <string name="subtitle_sign_sucessfull">You have created your account successfully</string>
+    <string name="label1_sign_sucessfull">Find the job of your dreams quickly and safely</string>
+    <string name="label2_sign_sucessfull">Share your development and professional growth</string>
+    <string name="label3_sign_sucessfull">Connect to opportunity</string>
+    <string name="btn_sign_sucessfull">Go to account</string>
+    <!-- Basic Settings -->
+    <string name="title_basicSettings">Welcome to Job Bank!</string>
+    <string name="subtitle_basicSettings">Personalize your profile</string>
+    <string name="text_basicSettings">It looks like you have finished setting up your account. That is great! Now all that remains is to customize your profile so you can share your information with the community</string>
+    <string name="btn_basicSettings">Go to home page</string>
+    <!-- Home_Navigation -->
+    <string name="home_navigation">Home</string>
+    <string name="notifications_navigation">Notifications</string>
+    <string name="featured_navigation">Featured</string>
+    <!-- Drawer_Navigation -->
+    <string name="profile_drawer_navigation">View profile</string>
+    <string name="groups_drawer_navigation">Groups</string>
+    <string name="events_drawer_navigation">Events</string>
+    <string name="settings_drawer_navigation">Sign out</string>
+    <!-- Home_Principal -->
+    <string name="search_home_principal">Search jobs</string>
+    <string name="noRecommended_home_principal">There are no jobs left to recommend</string>
+    <string name="recommended_home_principal">Recommended for you</string>
+    <string name="users_home_principal">People you may know</string>
+    <string name="more_home_principal">More jobs for you</string>
+    <string name="companies_home_principal">Most Popular Companies</string>
+    <string name="show_home_principal">Show all</string>
+    <!-- Home_Notifications -->
+    <string name="title_home_notifications">Notifications</string>
+    <string name="not_home_notifications">No notifications</string>
+    <!-- Home_Featured -->
+    <string name="title_home_featured">Featured</string>
+    <string name="not_home_featured">No featured</string>
+    <!-- Job_Details -->
+    <string name="description_job_details">Job description</string>
+    <string name="btn1_job_details">Apply</string>
+    <string name="btn2_job_details">Save</string>
+    <!-- User_Details -->
+    <string name="description_user_details">User description</string>
+    <string name="btn1_user_details">Apply</string>
+    <string name="btn2_user_details">View Profile</string>
+    <!-- Profile -->
+    <string name="search_profile">Search profile</string>
+    <string name="message_profile">Mesagge</string>
+    <!-- Company -->
+    <string name="search_company">Search company</string>
+    <string name="message_company">Learn more</string>
+    <!-- Job_Add -->
+    <string name="title_job_add">New Post</string>
+    <string name="subtitle_job_add">Who you\'re hiring?</string>
+    <string name="label_job_add">New job from</string>
+    <string name="btn1_job_add">Job title</string>
+    <string name="btn2_job_add">Speciality</string>
+    <string name="btn3_job_add">Job type</string>
+    <string name="btn4_job_add">Job Location</string>
+    <string name="txt1_job_add">Applications</string>
+    <string name="txt2_job_add">Availables</string>
+    <string name="txt3_job_add">Students</string>
+    <string name="txt4_job_add">Description</string>
+    <string name="txt5_job_add">Enter a description...</string>
+    <string name="btn5_job_add">Post job</string>
+    <!-- Job_Add_Data -->
+    <string name="search_job_add_data">Search</string>
+    <!-- Others -->
+    <string name="_0">0</string>
+</resources>

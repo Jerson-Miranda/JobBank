@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSecondary"
+    tools:context=".view.User_Details">
+
+    <ImageView
+        android:id="@+id/ivBanner_user_details"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="?attr/colorSecondaryVariant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfile_user_details"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="-60dp"
+        android:src="?attr/colorSecondaryVariant"
+        app:civ_border_color="?attr/colorSecondary"
+        app:civ_border_width="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBanner_user_details" />
+
+    <ImageButton
+        android:id="@+id/ibArchive_job_details"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_archive_false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvIdCreatedBy_user_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile_user_details">
+
+        <TextView
+            android:id="@+id/tvUsername_user_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Username" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername_user_details">
+
+            <ImageView
+                android:id="@+id/ibType_user_details"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_type_job"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvType_user_details"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/text_2"
+                app:layout_constraintBottom_toBottomOf="@+id/ibType_user_details"
+                app:layout_constraintStart_toEndOf="@+id/ibType_user_details"
+                app:layout_constraintTop_toTopOf="@+id/ibType_user_details"
+                tools:text="Type user" />
+
+            <ImageView
+                android:id="@+id/ibSpeciality_user_details"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_speciality"
+                app:layout_constraintStart_toEndOf="@+id/tvType_user_details"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSpeciality_user_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="@dimen/text_2"
+                app:layout_constraintBottom_toBottomOf="@+id/ibType_user_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ibSpeciality_user_details"
+                app:layout_constraintTop_toTopOf="@+id/ibType_user_details"
+                tools:text="Speciality" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tviDescription_user_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/description_user_details"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+        <TextView
+            android:id="@+id/tvDescription_user_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/text_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tviDescription_user_details"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris gravida felis sit amet ante dapibus imperdiet. Duis viverra ac risus ut accumsan. Fusce suscipit vulputate dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus aenean." />
+
+        <Button
+            android:id="@+id/btnApply_user_details"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="?attr/colorPrimaryVariant"
+            android:drawableEnd="@drawable/ic_apply"
+            android:drawablePadding="0dp"
+            android:stateListAnimator="@null"
+            android:text="@string/btn1_user_details"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/btn"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnView_user_details"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription_user_details" />
+
+        <Button
+            android:id="@+id/btnView_user_details"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="?attr/colorSecondaryVariant"
+            android:stateListAnimator="@null"
+            android:text="@string/btn2_user_details"
+            android:textAllCaps="true"
+            android:textColor="?attr/colorPrimaryVariant"
+            android:textSize="@dimen/btn"
+            android:textStyle="bold"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnApply_user_details"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription_user_details" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

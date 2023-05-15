@@ -1,0 +1,55 @@
+firstName
+LastName
+email
+phone
+location
+job:
+	job: 
+		name
+			assistant ...
+			accountant
+			analyst ...
+			administrative...
+			business...
+			consultant...
+			chef
+			development...
+			director...
+			enginner...
+			employer...
+			executive...
+			manager ...
+			nurse
+			owner
+			supervisor...
+			sales ...
+			teacher...
+
+ 		employment type
+			full-time
+			part-time
+			self-employed
+			freelancer
+			Contract
+			Internship
+			apprenticeship
+			seasonal
+		company
+			Apple
+			Amazon
+			Adobe
+			...
+		
+	student:
+		school
+		degree
+		specialization
+		startYear
+gender
+disability
+photo
+coverPhoto
+followers
+status:
+	available
+	unavailable
