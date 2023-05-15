@@ -29,11 +29,11 @@
 <h2>Application Images</h2>
 <p>Below are some screenshots of the App</p>
 
-<div style="display: flex;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Presentation.jpg" alt="Presentation" style="width: 33%;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Login.jpg" alt="Login" style="width: 33%;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home.jpg"alt="Home" style="width: 33%;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home1.jpg" alt="Home" style="width: 33%;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest.jpg"alt="JobRequest" style="width: 33%;">
-  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest2.jpg"alt="JobRequest" style="width: 33%;">
+<div style="display: flex; overflow-x: scroll;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Presentation.jpg" alt="Presentation" style="width: 25%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Login.jpg" alt="Login" style="width: 25%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home.jpg"alt="Home" style="width: 25%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home1.jpg" alt="Home" style="width: 25%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest.jpg"alt="JobRequest" style="width: 25%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest2.jpg"alt="JobRequest" style="width: 25%;">
 </div>
