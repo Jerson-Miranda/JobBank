@@ -1,3 +1,38 @@
-# JobBank
-Job bank mobile application
-https://1drv.ms/i/s!ApVoDneK65HPhJI5UPubTrg57LQlKw?e=4EfMsy
+<h1>Welcome to the Job Board Application Repository</h1>
+
+<p>This repository contains the source code and related resources for our Job Board Application. Our application aims to facilitate the search and connection between employers and job seekers, providing an intuitive and efficient platform for the exchange of job opportunities.</p>
+
+<h2>Key Features</h2>
+
+<ul>
+  <li><strong>Explore job opportunities:</strong> Browse through a wide range of job openings available in different industries and sectors, to find the one that best matches your skills and experience.</li>
+  <li><strong>Create and manage your profile:</strong> Build a comprehensive and appealing professional profile, highlighting your achievements and relevant skills to attract employers' attention. Additionally, easily manage and update your personal and employment information.</li>
+  <li><strong>Apply for jobs:</strong> Submit applications for the job positions that interest you the most directly from the application, sending your resume and a personalized cover letter in just a few clicks.</li>
+  <li><strong>Quick and seamless connections:</strong> We facilitate communication between employers and candidates, enabling smooth interaction and coordination of interviews and selection processes through our platform.</li>
+  <li><strong>Notifications and alerts:</strong> Stay informed about relevant job opportunities and important updates through real-time notifications and alerts.</li>
+</ul>
+
+<h2>Installation and Setup</h2>
+
+<p>If you want to try the application on your mobile device, please follow the installation and setup instructions provided in our <a href="#">installation guide</a> for a complete and hassle-free experience.</p>
+
+<h2>Contribution</h2>
+
+<p>We appreciate your interest in contributing to our project. If you would like to collaborate, please read our contribution guidelines in the <a href="#">CONTRIBUTING.md</a> file to learn how you can contribute and submit your contributions.</p>
+
+<h2>Additional Information</h2>
+
+<p>For more details about the application, including the usage license, copyright, and any other relevant information, please refer to our <a href="#">LICENSE</a> and <a href="#">NOTICE</a> files.</p>
+
+<p>We hope you enjoy using our Job Board Application and find your way to exciting new job opportunities! If you have any questions or comments, feel free to open an issue in this repository or contact our team through email or any other preferred form of communication.</p>
+
+<h2>Application Images</h2>
+<p>Below are some screenshots of the App</p>
+
+<div style="display: flex;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Presentation.jpg" alt="Imagen 1" style="width: 20%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Login.jpg" alt="Imagen 2" style="width: 20%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home.jpg"alt="Imagen 3" style="width: 20%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/Home1.jpg" alt="Imagen 4" style="width: 20%;">
+  <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest.jpg"alt="Imagen 5" style="width: 20%;">
+</div>
