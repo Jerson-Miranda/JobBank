@@ -1,4 +1,4 @@
-<h1>Welcome to the Job Board Application Repository</h1>
+<h1>Welcome to the Job Bank Application Repository</h1>
 
 <p>This repository contains the source code and related resources for applying to a job board. The application aims to facilitate the search and connection between employers and job seekers, providing an intuitive and efficient platform for the exchange of job opportunities.</p>
 
