@@ -51,5 +51,6 @@ class MainActivity : AppCompatActivity() {
         }, 3000)
     }
 
+    //Development: Jerson Rai Miranda Diaz
 
 }
