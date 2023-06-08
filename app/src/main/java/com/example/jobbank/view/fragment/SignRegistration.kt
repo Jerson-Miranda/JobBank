@@ -10,11 +10,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jobbank.R
 import com.example.jobbank.databinding.FragmentSignRegistrationBinding
-import com.example.jobbank.view.Home
 import com.example.jobbank.view.Login
 import com.google.firebase.auth.*
 
-class Sign_Registration : Fragment() {
+class SignRegistration : Fragment() {
 
     object Registration {
         lateinit var email: String
@@ -67,11 +66,11 @@ class Sign_Registration : Fragment() {
                     Registration.email = binding.etEmailSignRegistration.text.toString()
                     Registration.phone = binding.etPhoneSignRegistration.text.toString()
                     Registration.cPassword = binding.etCPasswordSignRegistration.text.toString()
-                    val transaction = requireFragmentManager().beginTransaction()
+                    val transaction = requireParentFragment().parentFragmentManager.beginTransaction()
                     transaction.setCustomAnimations(
                         R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right
                     )
-                    transaction.replace(R.id.fragment_container, Sign_Verification())
+                    transaction.replace(R.id.fragment_container, SignVerification())
                     transaction.addToBackStack(null)
                     transaction.commit()
                 } else {

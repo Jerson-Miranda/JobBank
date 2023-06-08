@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -21,7 +17,7 @@
         android:theme="@style/Theme.JobBank"
         tools:targetApi="31">
         <activity
-            android:name=".view.User_Details"
+            android:name=".view.UserDetails"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -29,7 +25,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.Sign_Type_User"
+            android:name=".view.SignTypeUser"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
@@ -45,7 +41,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.Job_Recommended"
+            android:name=".view.JobRecommended"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

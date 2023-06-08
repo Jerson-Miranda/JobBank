@@ -2,17 +2,14 @@ package com.example.jobbank.view
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jobbank.R
-import com.example.jobbank.databinding.ActivityJobDetailsBinding
 import com.example.jobbank.databinding.ActivityUserDetailsBinding
 import com.example.jobbank.model.Company
-import com.example.jobbank.model.Job
 import com.example.jobbank.model.Notification
 import com.example.jobbank.model.User
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -22,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 
-class User_Details : BottomSheetDialogFragment() {
+class UserDetails : BottomSheetDialogFragment() {
 
     private lateinit var binding: ActivityUserDetailsBinding
     private var selected: String? = null
@@ -35,7 +32,7 @@ class User_Details : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ActivityUserDetailsBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -79,17 +76,16 @@ class User_Details : BottomSheetDialogFragment() {
     }
 
     private fun notificationData(id: Int, sender: String, recipient: String): Notification {
-        val data = Notification(
+        return Notification(
             id,
             sender,
             recipient,
-            "Solicitud de trabajo",
-            "$nameUser acepto su solicitud de trabajo",
+            "Job Request",
+            "$nameUser accepted his job application",
             0,
             false,
             image
         )
-        return data
     }
 
     private fun getDataFromFirebase(selected: String) {
@@ -98,7 +94,7 @@ class User_Details : BottomSheetDialogFragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (childSnapshot in snapshot.children) {
                     val item = childSnapshot.getValue(User::class.java)
-                    binding.tvUsernameUserDetails.text = item?.firstName + " " + item?.lastName
+                    binding.tvUsernameUserDetails.text = getString(R.string.username_format, item?.firstName, item?.lastName)
                     binding.tvTypeUserDetails.text = item?.typeUser
                     binding.tvSpecialityUserDetails.text = item?.speciality
                     binding.tvDescriptionUserDetails.text = item?.firstName

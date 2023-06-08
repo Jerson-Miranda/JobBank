@@ -2,31 +2,23 @@ package com.example.jobbank.view
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivityJobDetailsBinding
 import com.example.jobbank.model.Company
 import com.example.jobbank.model.Job
 import com.example.jobbank.model.Notification
 import com.example.jobbank.model.User
-import com.example.jobbank.view.fragment.Sign_Data
-import com.example.jobbank.view.fragment.Sign_Registration
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.RemoteMessage
-import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
-import java.io.File
 
 class Job_Details : BottomSheetDialogFragment() {
 

@@ -10,19 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.jobbank.databinding.FragmentSignSucessfullBinding
-import com.example.jobbank.model.Company
-import com.example.jobbank.model.User
 import com.example.jobbank.view.BasicSettings
-import com.example.jobbank.view.Sign_Type_User
+import com.example.jobbank.view.SignTypeUser
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 
 
-class Sign_Sucessfull : Fragment() {
+class SignSuccessfully : Fragment() {
 
     private lateinit var binding: FragmentSignSucessfullBinding
-    val database = FirebaseDatabase.getInstance()
-    val storage = FirebaseStorage.getInstance()
+    private val database = FirebaseDatabase.getInstance()
+    private val storage = FirebaseStorage.getInstance()
     private lateinit var sharedPreferencesId: SharedPreferences
 
     override fun onCreateView(
@@ -42,7 +40,7 @@ class Sign_Sucessfull : Fragment() {
     }
 
     private fun usersData(uri: String, uri2: String) {
-        if (Sign_Type_User.TypeUser.typeUser == "company"){
+        if (SignTypeUser.TypeUser.typeUser == "company"){
             val myRef = database.getReference("company").child(sharedPreferencesId.getInt("spId", 0).toString())
             val updates = hashMapOf<String, Any>(
                 "imageUrl" to uri,
@@ -74,21 +72,20 @@ class Sign_Sucessfull : Fragment() {
     }
 
     private fun image(){
-        var table = ""
-        table = if (Sign_Type_User.TypeUser.typeUser == "company"){
+        val table = if (SignTypeUser.TypeUser.typeUser == "company"){
             "company"
         } else {
             "users"
         }
         val ref = storage.getReference(table).child(sharedPreferencesId.getInt("spId", 0).toString()).child("profile.png")
         ref.downloadUrl.addOnSuccessListener { uri ->
-            val ref = storage.getReference(table).child(sharedPreferencesId.getInt("spId", 0).toString()).child("banner.png")
-            ref.downloadUrl.addOnSuccessListener { uri2 ->
+            val ref1 = storage.getReference(table).child(sharedPreferencesId.getInt("spId", 0).toString()).child("banner.png")
+            ref1.downloadUrl.addOnSuccessListener { uri2 ->
                 usersData(uri.toString(), uri2.toString())
-            }.addOnFailureListener { exception ->
+            }.addOnFailureListener {
                 Toast.makeText(requireActivity(), "Unknown error 2", Toast.LENGTH_SHORT).show()
             }
-        }.addOnFailureListener { exception ->
+        }.addOnFailureListener {
             Toast.makeText(requireActivity(), "Unknown error 1", Toast.LENGTH_SHORT).show()
         }
     }

@@ -17,10 +17,10 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 interface OnButtonClickListener {
-    fun onButtonClicked(parametro: String?, view: String)
+    fun onButtonClicked(parameter: String?, view: String)
 }
 
-class Job_Add_Data : Fragment() {
+class JobAddData : Fragment() {
     private var mListener: OnButtonClickListener? = null
 
     override fun onAttach(context: Context) {
@@ -71,8 +71,8 @@ class Job_Add_Data : Fragment() {
         binding.rvJobAddData.addOnItemTouchListener(
             JobTouchListener(requireActivity(), binding.rvJobAddData, object : JobTouchListener.ClickListener {
                 override fun onClick(view: View?, position: Int) {
-                    val parametro = resultList[position]
-                    mListener?.onButtonClicked(parametro, btn)
+                    val parameter = resultList[position]
+                    mListener?.onButtonClicked(parameter, btn)
                 }
                 override fun onLongClick(view: View?, position: Int) {}
             })

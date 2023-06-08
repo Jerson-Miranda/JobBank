@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,20 +18,15 @@ import com.example.jobbank.model.adapter.JobAdapter
 import com.example.jobbank.model.adapter.JobTouchListener
 import com.example.jobbank.model.adapter.UserAdapter
 import com.example.jobbank.view.Job_Details
-import com.example.jobbank.view.Job_Recommended
+import com.example.jobbank.view.JobRecommended
 import com.example.jobbank.view.Profile
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.messaging.RemoteMessage
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
-class Home_Principal : Fragment() {
+class HomePrincipal : Fragment() {
 
     private lateinit var binding: FragmentHomePrincipalBinding
     val database = Firebase.database
@@ -61,7 +55,7 @@ class Home_Principal : Fragment() {
         eventsClick()
 
         binding.btnShowHomePrincipal.setOnClickListener{
-            startActivity(Intent(requireActivity(), Job_Recommended::class.java))
+            startActivity(Intent(requireActivity(), JobRecommended::class.java))
         }
 
         binding.ibMessagingHomePrincipal.setOnClickListener{
@@ -117,7 +111,7 @@ class Home_Principal : Fragment() {
                 }
                 override fun onCancelled(error: DatabaseError) {}
             })
-        } else {}
+        }
     }
 
     private fun visualizeUser(){
@@ -125,14 +119,14 @@ class Home_Principal : Fragment() {
             val ref = database.getReference("users").orderByChild("email").equalTo(sharedPreferencesEmail.getString("spEmail", ""))
             ref.addListenerForSingleValueEvent (object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    for (childSnapshot in snapshot.children) {
-                        val address = childSnapshot.child("address").getValue(String::class.java)
+                    for (outerChildSnapshot in snapshot.children) {
+                        val address = outerChildSnapshot.child("address").getValue(String::class.java)
                         val ref2 = database.getReference("users").orderByChild("address").equalTo(address)
                         ref2.addListenerForSingleValueEvent(object : ValueEventListener {
-                            override fun onDataChange(snapshot: DataSnapshot) {
+                            override fun onDataChange(innerSnapshot: DataSnapshot) {
                                 usersList.clear()
-                                for (childSnapshot in snapshot.children) {
-                                    val item = childSnapshot.getValue(User::class.java)
+                                for (innerChildSnapshot in innerSnapshot.children) {
+                                    val item = innerChildSnapshot.getValue(User::class.java)
                                     if (item?.email != sharedPreferencesEmail.getString("spEmail", "")) {
                                         usersList.add(item!!)
                                     }
@@ -146,7 +140,7 @@ class Home_Principal : Fragment() {
                 }
                 override fun onCancelled(error: DatabaseError) {}
             })
-        } else {}
+        }
     }
 
     private fun visualizeCompany(){
@@ -160,8 +154,8 @@ class Home_Principal : Fragment() {
                         ref2.addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 companyList.clear()
-                                for (childSnapshot in snapshot.children) {
-                                    val item = childSnapshot.getValue(Company::class.java)
+                                for (innerChildSnapshot in snapshot.children) {
+                                    val item = innerChildSnapshot.getValue(Company::class.java)
                                     companyList.add(item!!)
                                 }
                                 binding.rvCompanyHomePrincipal.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
@@ -173,7 +167,7 @@ class Home_Principal : Fragment() {
                 }
                 override fun onCancelled(error: DatabaseError) {}
             })
-        } else {}
+        }
     }
 
     private fun eventsClick(){
@@ -185,7 +179,7 @@ class Home_Principal : Fragment() {
                             putInt("selected", jobRecommendedList[position].id)
                         }
                     }
-                    bottomSheetDialogFragment.show(requireFragmentManager(), bottomSheetDialogFragment.tag)
+                    bottomSheetDialogFragment.show(requireParentFragment().parentFragmentManager, bottomSheetDialogFragment.tag)
                 }
                 override fun onLongClick(view: View?, position: Int) {}
             })
@@ -199,7 +193,7 @@ class Home_Principal : Fragment() {
                             putInt("selected", moreJobList[position].id)
                         }
                     }
-                    bottomSheetDialogFragment.show(requireFragmentManager(), bottomSheetDialogFragment.tag)
+                    bottomSheetDialogFragment.show(requireParentFragment().parentFragmentManager, bottomSheetDialogFragment.tag)
                 }
                 override fun onLongClick(view: View?, position: Int) {}
             })

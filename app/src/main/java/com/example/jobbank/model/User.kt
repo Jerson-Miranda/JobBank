@@ -15,5 +15,6 @@ class User (
     val status: Boolean = false,
     val tokenNotification: String = "",
     var imageUrl: String = "",
-    var imageUrl2: String = ""
+    var imageUrl2: String = "",
+    var description: String = ""
 )

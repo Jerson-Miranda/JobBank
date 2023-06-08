@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivitySignupBinding
-import com.example.jobbank.view.fragment.Sign_Data
-import kotlin.system.exitProcess
+import com.example.jobbank.view.fragment.SignData
 
 class Signup : AppCompatActivity() {
 
@@ -16,7 +15,7 @@ class Signup : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, Sign_Data()).commit()
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, SignData()).commit()
     }
 
 }

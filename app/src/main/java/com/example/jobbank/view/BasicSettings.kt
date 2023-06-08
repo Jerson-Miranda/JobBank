@@ -12,13 +12,13 @@ import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.jobbank.databinding.ActivityBasicSettingsBinding
-import com.example.jobbank.view.fragment.Sign_Data.Data
-import com.example.jobbank.view.Sign_Type_User.TypeUser
+import com.example.jobbank.view.fragment.SignData.Data
+import com.example.jobbank.view.SignTypeUser.TypeUser
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
 import kotlin.system.exitProcess
-import com.example.jobbank.view.fragment.Sign_Verification.Verification
-import com.example.jobbank.view.fragment.Sign_Data_Job.DataJob
+import com.example.jobbank.view.fragment.SignVerification.Verification
+import com.example.jobbank.view.fragment.SignDataJob.DataJob
 
 class BasicSettings : AppCompatActivity() {
 
@@ -54,7 +54,7 @@ class BasicSettings : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         var table = ""
-        table = if (Sign_Type_User.TypeUser.typeUser == "company"){
+        table = if (SignTypeUser.TypeUser.typeUser == "company"){
             "company"
         } else {
             "users"
@@ -149,7 +149,7 @@ class BasicSettings : AppCompatActivity() {
             binding.tvBusinessBasicSettings.text = DataJob.website
         } else {
             binding.tvUsernameBasicSettings.text = Data.firstName + " "  + Data.lastName
-            binding.tvBusinessBasicSettings.text = DataJob.schooljob
+            binding.tvBusinessBasicSettings.text = DataJob.schoolJob
         }
         binding.tvSpecialityBasicSettings.text = DataJob.speciality
         binding.tvAddressBBasicSettings.text = DataJob.location

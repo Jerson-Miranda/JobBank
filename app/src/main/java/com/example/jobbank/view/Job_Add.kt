@@ -2,35 +2,27 @@ package com.example.jobbank.view
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import com.example.jobbank.view.fragment.Job_Add_Data
+import com.example.jobbank.view.fragment.JobAddData
 import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivityJobAddBinding
 import com.example.jobbank.model.Company
 import com.example.jobbank.model.Job
-import com.example.jobbank.model.User
 import com.example.jobbank.view.fragment.OnButtonClickListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import java.io.ByteArrayOutputStream
 
 class Job_Add : AppCompatActivity(), OnButtonClickListener {
 
     private lateinit var binding: ActivityJobAddBinding
     private val database = FirebaseDatabase.getInstance()
-    private lateinit var f: Job_Add_Data
+    private lateinit var f: JobAddData
     private lateinit var sharedPreferencesId: SharedPreferences
     private lateinit var sharedPreferencesEmail: SharedPreferences
     private var imageUrl: String? = null
@@ -43,7 +35,7 @@ class Job_Add : AppCompatActivity(), OnButtonClickListener {
         sharedPreferencesId = getSharedPreferences("sharedPreferencesId", Context.MODE_PRIVATE)
         sharedPreferencesEmail = getSharedPreferences("sharedPreferencesEmail", Context.MODE_PRIVATE)
 
-        f = Job_Add_Data()
+        f = JobAddData()
         userData()
         image()
 
@@ -201,18 +193,18 @@ class Job_Add : AppCompatActivity(), OnButtonClickListener {
         }
     }
 
-    override fun onButtonClicked(parametro: String?, view: String) {
+    override fun onButtonClicked(parameter: String?, view: String) {
         if (view == "Job title"){
-            binding.btnTitleJobAdd.text = parametro
+            binding.btnTitleJobAdd.text = parameter
             binding.btnTitleJobAdd.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         } else if (view == "Speciality"){
-            binding.btnBusinessJobAdd.text = parametro
+            binding.btnBusinessJobAdd.text = parameter
             binding.btnBusinessJobAdd.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         } else if (view == "Job type"){
-            binding.btnTypeJobAdd.text = parametro
+            binding.btnTypeJobAdd.text = parameter
             binding.btnTypeJobAdd.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         } else if (view == "Job Location"){
-            binding.btnLocationJobAdd.text = parametro
+            binding.btnLocationJobAdd.text = parameter
             binding.btnLocationJobAdd.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         }
         supportFragmentManager.beginTransaction().remove(f).commit()

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSecondary"
-    tools:context=".view.User_Details">
+    tools:context=".view.UserDetails">
 
     <ImageView
         android:id="@+id/ivBanner_user_details"

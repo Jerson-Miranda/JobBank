@@ -8,23 +8,23 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.example.jobbank.R
 import com.example.jobbank.databinding.FragmentSignDataJobBinding
-import com.example.jobbank.view.Sign_Type_User.TypeUser
+import com.example.jobbank.view.SignTypeUser.TypeUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class Sign_Data_Job : Fragment() {
+class SignDataJob : Fragment() {
 
     object DataJob {
-        lateinit var schooljob: String
+        lateinit var schoolJob: String
         lateinit var speciality: String
         lateinit var website: String
         lateinit var location: String
     }
 
     private lateinit var binding: FragmentSignDataJobBinding
-    private var schooljobList = ArrayList<String>()
+    private var schoolJobList = ArrayList<String>()
     private var specialityList = ArrayList<String>()
     private var locationList = ArrayList<String>()
     private val database = FirebaseDatabase.getInstance()
@@ -36,7 +36,7 @@ class Sign_Data_Job : Fragment() {
         binding = FragmentSignDataJobBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        schooljobData()
+        schoolJobData()
         specialityData()
         locationData()
         typeUser()
@@ -45,15 +45,15 @@ class Sign_Data_Job : Fragment() {
             if(!validateWebsite()) {
                 return@setOnClickListener
             }
-            DataJob.schooljob = binding.sSchoolJobSignDataJob.selectedItem.toString()
+            DataJob.schoolJob = binding.sSchoolJobSignDataJob.selectedItem.toString()
             DataJob.speciality = binding.sSpecialitySignDataJob.selectedItem.toString()
             DataJob.website = binding.etWebsiteSignDataJob.text.toString()
             DataJob.location = binding.sLocationSignDataJob.selectedItem.toString()
-            val transaction = requireFragmentManager().beginTransaction()
+            val transaction = requireParentFragment().parentFragmentManager.beginTransaction()
             transaction.setCustomAnimations(
                 R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right
             )
-            transaction.replace(R.id.fragment_container, Sign_Registration())
+            transaction.replace(R.id.fragment_container, SignRegistration())
             transaction.addToBackStack(null)
             transaction.commit()
         }
@@ -67,11 +67,11 @@ class Sign_Data_Job : Fragment() {
         } else {
             binding.sSchoolJobSignDataJob.visibility = View.VISIBLE
             binding.tv2DataJob.visibility = View.VISIBLE
-            binding.etWebsiteSignDataJob.setText("null")
+            binding.etWebsiteSignDataJob.setText(R.string.nulll)
             if(TypeUser.typeUser == "student"){
-                binding.tv2DataJob.setText("University")
+                binding.tv2DataJob.setText(R.string.lbUniversity)
             } else {
-                binding.tv2DataJob.setText("Last company")
+                binding.tv2DataJob.setText(R.string.lbLastCompany)
             }
         }
     }
@@ -86,10 +86,9 @@ class Sign_Data_Job : Fragment() {
         return false
     }
 
-    private fun schooljobData(){
-        schooljobList.clear()
-        var table = ""
-        table = if (TypeUser.typeUser == "student"){
+    private fun schoolJobData() {
+        schoolJobList.clear()
+        val table = if (TypeUser.typeUser == "student") {
             "school"
         } else {
             "business"
@@ -99,9 +98,9 @@ class Sign_Data_Job : Fragment() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (snapshot in dataSnapshot.children) {
                     val value = snapshot.getValue(String::class.java)
-                    schooljobList.add(value!!)
+                    schoolJobList.add(value!!)
                 }
-                val adapter = ArrayAdapter(requireActivity(), R.layout.item_spinner_dropdown, schooljobList)
+                val adapter = ArrayAdapter(requireActivity(), R.layout.item_spinner_dropdown, schoolJobList)
                 adapter.setDropDownViewResource(R.layout.item_spinner_dropdown)
                 binding.sSchoolJobSignDataJob.adapter = adapter
             }

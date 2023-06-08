@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSecondary"
-    tools:context=".view.fragment.Sign_Registration">
+    tools:context=".view.fragment.SignRegistration">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

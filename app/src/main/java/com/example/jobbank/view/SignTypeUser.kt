@@ -1,13 +1,11 @@
 package com.example.jobbank.view
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.jobbank.databinding.ActivitySignTypeUserBinding
 
-class Sign_Type_User : AppCompatActivity() {
+class SignTypeUser : AppCompatActivity() {
 
     object TypeUser {
         lateinit var typeUser: String

@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.jobbank.R
 import com.example.jobbank.databinding.FragmentSignDataBinding
-import com.example.jobbank.view.Sign_Type_User.TypeUser
+import com.example.jobbank.view.SignTypeUser.TypeUser
 
-class Sign_Data : Fragment() {
+class SignData : Fragment() {
 
     object Data {
         lateinit var firstName: String
@@ -37,8 +37,8 @@ class Sign_Data : Fragment() {
     private fun typeUser(){
         if(TypeUser.typeUser == "company"){
             binding.etLastNameSignFullname.visibility = View.GONE
-            binding.etLastNameSignFullname.setText("null")
-            binding.tvSubtitlePresentation.setText("Enter company name")
+            binding.etLastNameSignFullname.setText(R.string.nulll)
+            binding.tvSubtitlePresentation.setText(R.string.lbCompany)
             binding.etFirstNameSignFullname.hint = "Company name"
         } else {
             binding.etLastNameSignFullname.visibility = View.VISIBLE
@@ -51,18 +51,18 @@ class Sign_Data : Fragment() {
         }
         Data.firstName = binding.etFirstNameSignFullname.text.toString()
         Data.lastName = binding.etLastNameSignFullname.text.toString()
-        val transaction = requireFragmentManager().beginTransaction()
+        val transaction = requireParentFragment().parentFragmentManager.beginTransaction()
         transaction.setCustomAnimations(
             R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right
         )
-        transaction.replace(R.id.fragment_container, Sign_Data_Job())
+        transaction.replace(R.id.fragment_container, SignDataJob())
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun validateFirstName(): Boolean {
         val firstName = binding.etFirstNameSignFullname.text.toString().trim()
-        val firstNamePattern = "[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s-]+".toRegex()
+        val firstNamePattern = "[a-zA-ZñáéíóúÁÉÍÓÚüÜ\\s-]+".toRegex()
         if (firstName.isEmpty()) {
             binding.etFirstNameSignFullname.error = "Enter your first name"
         } else if (!firstName.matches(firstNamePattern)) {
@@ -75,7 +75,7 @@ class Sign_Data : Fragment() {
 
     private fun validateLastName(): Boolean {
         val lastName = binding.etLastNameSignFullname.text.toString().trim()
-        val lastNamePattern = "[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\\s-]+".toRegex()
+        val lastNamePattern = "[a-zA-ZñáéíóúÁÉÍÓÚüÜ\\s-]+".toRegex()
         if (lastName.isEmpty()) {
             binding.etLastNameSignFullname.error = "Enter your last name"
         } else if (!lastName.matches(lastNamePattern)) {

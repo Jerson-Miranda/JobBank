@@ -3,7 +3,6 @@ package com.example.jobbank.view.fragment
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,14 +19,14 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import com.example.jobbank.view.fragment.Sign_Data.Data
-import com.example.jobbank.view.fragment.Sign_Data_Job.DataJob
-import com.example.jobbank.view.Sign_Type_User.TypeUser
-import com.example.jobbank.view.fragment.Sign_Registration.Registration
+import com.example.jobbank.view.fragment.SignData.Data
+import com.example.jobbank.view.fragment.SignDataJob.DataJob
+import com.example.jobbank.view.SignTypeUser.TypeUser
+import com.example.jobbank.view.fragment.SignRegistration.Registration
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 
-class Sign_Verification : Fragment() {
+class SignVerification : Fragment() {
 
     object Verification {
         lateinit var id: String
@@ -39,9 +38,9 @@ class Sign_Verification : Fragment() {
     private lateinit var sharedPreferencesEmail: SharedPreferences
     private lateinit var sharedPreferencesId: SharedPreferences
     private lateinit var sharedPreferencesType: SharedPreferences
-    //FIrebase Instances
-    val database = FirebaseDatabase.getInstance()
-    val storage = FirebaseStorage.getInstance()
+    //Firebase Instances
+    private val database = FirebaseDatabase.getInstance()
+    private val storage = FirebaseStorage.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +49,7 @@ class Sign_Verification : Fragment() {
         binding = FragmentSignVerificationBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.tvSubtitleSignVerification.text = "Hi " + Data.firstName + "!"
+        binding.tvSubtitleSignVerification.text = getString(R.string.welcome_message, Data.firstName)
         sharedPreferencesLogin = requireActivity().getSharedPreferences("sharedPreferencesLogin", Context.MODE_PRIVATE)
         sharedPreferencesEmail = requireActivity().getSharedPreferences("sharedPreferencesEmail", Context.MODE_PRIVATE)
         sharedPreferencesId = requireActivity().getSharedPreferences("sharedPreferencesId", Context.MODE_PRIVATE)
@@ -111,7 +110,7 @@ class Sign_Verification : Fragment() {
     }
 
     private fun usersData(id: Int) {
-        //Registrar Usuario
+        //User register
         if (TypeUser.typeUser == "company"){
             val myRef = database.getReference("company").child(id.plus(1).toString())
             myRef.setValue(dataCompany(id.plus(1))).addOnCompleteListener { task ->
@@ -136,9 +135,8 @@ class Sign_Verification : Fragment() {
     }
 
     private fun storageData(id: Int){
-        //Registrar profile del usuario
-        var table = ""
-        table = if (TypeUser.typeUser == "company"){
+        //Profile user register
+        val table = if (TypeUser.typeUser == "company"){
             "company"
         } else {
             "users"
@@ -156,9 +154,8 @@ class Sign_Verification : Fragment() {
     }
 
     private fun storageData2(id: Int){
-        //Registrar banner del usuario
-        var table = ""
-        table = if (TypeUser.typeUser == "company"){
+        //Banner user register
+        val table = if (TypeUser.typeUser == "company"){
             "company"
         } else {
             "users"
@@ -169,12 +166,12 @@ class Sign_Verification : Fragment() {
             .addOnSuccessListener {
                 Verification.id = id.plus(1).toString()
                 sharedPreferencesLogin.edit().putBoolean("spLogin", true).apply()
-                sharedPreferencesEmail.edit().putString("spEmail", Sign_Registration.Registration.email).apply()
+                sharedPreferencesEmail.edit().putString("spEmail", Registration.email).apply()
                 sharedPreferencesId.edit().putInt("spId", id.plus(1)).apply()
                 sharedPreferencesType.edit().putString("spType", TypeUser.typeUser).apply()
                 binding.pbWaitSignVerification.visibility = View.GONE
-                val fragment = Sign_Sucessfull()
-                val transaction = requireFragmentManager().beginTransaction()
+                val fragment = SignSuccessfully()
+                val transaction = requireParentFragment().parentFragmentManager.beginTransaction()
                 transaction.setCustomAnimations(
                     R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right
                 )
@@ -198,45 +195,43 @@ class Sign_Verification : Fragment() {
         return ""
     }
 
-    private fun dataUser(id: Int): User{
-        val data = User(
+    private fun dataUser(id: Int): User {
+        return User(
             id,
             Data.firstName,
             Data.lastName,
             Registration.email,
             Registration.cPassword,
             Registration.phone,
-            TypeUser.typeUser ,
-            DataJob.speciality ,
-            DataJob.schooljob ,
+            TypeUser.typeUser,
+            DataJob.speciality,
+            DataJob.schoolJob,
             DataJob.location,
-            "0" ,
-            true ,
+            "0",
+            true,
             binding.tvTokenSignVerification.text.toString(),
             "",
             ""
         )
-        return data
     }
 
     private fun dataCompany(id: Int): Company {
-        val data = Company(
+        return Company(
             id,
             Data.firstName,
             Registration.email,
             Registration.cPassword,
             Registration.phone,
-            TypeUser.typeUser ,
-            DataJob.speciality ,
-            DataJob.website ,
+            TypeUser.typeUser,
+            DataJob.speciality,
+            DataJob.website,
             DataJob.location,
-            "0" ,
-            true ,
+            "0",
+            true,
             binding.tvTokenSignVerification.text.toString(),
             "",
             ""
         )
-        return data
     }
 
 }

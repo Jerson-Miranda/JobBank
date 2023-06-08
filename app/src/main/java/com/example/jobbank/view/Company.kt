@@ -12,7 +12,9 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
+import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivityCompanyBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,9 +32,22 @@ class Company : AppCompatActivity() {
     private lateinit var sharedPreferencesId: SharedPreferences
     //Firebase Storage
     private var storage = FirebaseStorage.getInstance()
-    private val PICK_PROFILE_REQUEST_CODE = 1
-    private val PICK_BANNER_REQUEST_CODE = 2
+    private val pickProfileRequestCode = 1
+    private val pickBannerRequestCode = 2
 
+    private val pickProfileActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.data
+            }
+        }
+
+    private val pickBannerActivityResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                result.data?.data
+            }
+        }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCompanyBinding.inflate(layoutInflater)
@@ -49,8 +64,8 @@ class Company : AppCompatActivity() {
             binding.ibEditBannerCompany.visibility = View.GONE
             binding.btnFollowCompany.visibility = View.VISIBLE
             binding.btnMesaggeCompany.visibility = View.VISIBLE
-            binding.btnFollowCompany.setText("Follow")
-            binding.btnMesaggeCompany.setText("Learn more")
+            binding.btnFollowCompany.setText(R.string.lbFollow)
+            binding.btnMesaggeCompany.setText(R.string.message_company)
         } else {
             binding.ibEditProfileCompany.visibility = View.VISIBLE
             binding.ibEditProfileDataCompany.visibility = View.VISIBLE
@@ -61,13 +76,14 @@ class Company : AppCompatActivity() {
 
         getDataFromFirebase()
 
-        binding.ibEditProfileCompany.setOnClickListener{
+        binding.ibEditProfileCompany.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_PROFILE_REQUEST_CODE)
+            pickProfileActivityResultLauncher.launch(intent)
         }
-        binding.ibEditBannerCompany.setOnClickListener{
+
+        binding.ibEditBannerCompany.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_BANNER_REQUEST_CODE)
+            pickBannerActivityResultLauncher.launch(intent)
         }
     }
 
@@ -127,33 +143,34 @@ class Company : AppCompatActivity() {
         }
     }
 
+    @Deprecated("Use registerForActivityResult and ActivityResultCallback instead")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_PROFILE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == pickProfileRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
             getRealPathFromUri(uri!!)
             val fileRef = storage.getReference("company/${sharedPreferencesId.getInt("spId", 0)}/profile.png")
 
-            fileRef.putFile(uri!!)
+            fileRef.putFile(uri)
                 .addOnSuccessListener {
                     getImageProfile()
-                    Toast.makeText(this, "Archivo subido exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "File uploaded successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error al subir el archivo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to upload file", Toast.LENGTH_SHORT).show()
                 }
-        } else if (requestCode == PICK_BANNER_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+        } else if (requestCode == pickBannerRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
             getRealPathFromUri(uri!!)
             val fileRef = storage.getReference("company/${sharedPreferencesId.getInt("spId", 0)}/banner.png")
 
-            fileRef.putFile(uri!!)
+            fileRef.putFile(uri)
                 .addOnSuccessListener {
                     getImageBanner()
-                    Toast.makeText(this, "Archivo subido exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "File uploaded successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error al subir el archivo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to upload file", Toast.LENGTH_SHORT).show()
                 }
         }
     }
@@ -166,7 +183,7 @@ class Company : AppCompatActivity() {
             binding.pbBannerCompany.visibility = View.VISIBLE
             val localFile = File.createTempFile("images", "jpg")
             banner.getFile(localFile)
-                .addOnSuccessListener { bytes ->
+                .addOnSuccessListener {
                     binding.pbBannerCompany.visibility = View.GONE
                     val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                     Glide.with(this)
@@ -174,7 +191,7 @@ class Company : AppCompatActivity() {
                         .centerCrop()
                         .into(binding.ivBannerCompany)
                 }
-                .addOnFailureListener { exception -> }
+                .addOnFailureListener {}
         } else {
             val ref = FirebaseDatabase.getInstance().getReference("company").orderByChild("email").equalTo(email)
             ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -203,7 +220,7 @@ class Company : AppCompatActivity() {
             binding.pbProfileCompany.visibility = View.VISIBLE
             val localFile2 = File.createTempFile("images1", "jpg")
             profile.getFile(localFile2)
-                .addOnSuccessListener { bytes ->
+                .addOnSuccessListener {
                     binding.pbProfileCompany.visibility = View.GONE
                     val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
                     Glide.with(this)
@@ -211,7 +228,7 @@ class Company : AppCompatActivity() {
                         .centerCrop()
                         .into(binding.ivProfileCompany)
                 }
-                .addOnFailureListener { exception -> }
+                .addOnFailureListener {}
         } else {
             val ref = FirebaseDatabase.getInstance().getReference("company").orderByChild("email").equalTo(email)
             ref.addListenerForSingleValueEvent(object : ValueEventListener {

@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class Job_Recommended : AppCompatActivity() {
+class JobRecommended : AppCompatActivity() {
 
     private lateinit var binding: ActivityJobRecommendedBinding
     val database = Firebase.database
@@ -68,7 +68,7 @@ class Job_Recommended : AppCompatActivity() {
                                     }
                                 }
                             }
-                            binding.rvJobRecommended.layoutManager = LinearLayoutManager(this@Job_Recommended)
+                            binding.rvJobRecommended.layoutManager = LinearLayoutManager(this@JobRecommended)
                             binding.rvJobRecommended.adapter = JobAdapter(jobRecommendedList, false)
                             toggleEmptyView()
                         }

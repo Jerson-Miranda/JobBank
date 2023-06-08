@@ -1,21 +1,20 @@
 package com.example.jobbank.view
 
 import android.app.Activity
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.database.Cursor
 import android.graphics.BitmapFactory
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
+import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivityProfileBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -33,8 +32,20 @@ class Profile : AppCompatActivity() {
     private lateinit var sharedPreferencesId: SharedPreferences
     //Firebase Storage
     private var storage = FirebaseStorage.getInstance()
-    private val PICK_PROFILE_REQUEST_CODE = 1
-    private val PICK_BANNER_REQUEST_CODE = 2
+    private val pickProfileRequestCode = 1
+    private val pickBannerRequestCode = 2
+
+    private val pickProfileActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.data
+        }
+    }
+
+    private val pickBannerActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            result.data?.data
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +63,8 @@ class Profile : AppCompatActivity() {
             binding.ibEditBannerProfile.visibility = View.GONE
             binding.btnFollowProfile.visibility = View.VISIBLE
             binding.btnMesaggeProfile.visibility = View.VISIBLE
-            binding.btnFollowProfile.setText("Follow")
-            binding.btnMesaggeProfile.setText("Connect")
+            binding.btnFollowProfile.setText(R.string.lbFollow)
+            binding.btnMesaggeProfile.setText(R.string.lbConnect)
         } else {
             binding.ibEditProfileProfile.visibility = View.VISIBLE
             binding.ibEditProfileDataProfile.visibility = View.VISIBLE
@@ -64,13 +75,13 @@ class Profile : AppCompatActivity() {
 
         getDataFromFirebase()
 
-        binding.ibEditProfileProfile.setOnClickListener{
+        binding.ibEditProfileProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_PROFILE_REQUEST_CODE)
+            pickProfileActivityResultLauncher.launch(intent)
         }
-        binding.ibEditBannerProfile.setOnClickListener{
+        binding.ibEditBannerProfile.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, PICK_BANNER_REQUEST_CODE)
+            pickBannerActivityResultLauncher.launch(intent)
         }
     }
 
@@ -82,7 +93,10 @@ class Profile : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         for (childSnapshot in snapshot.children) {
-                            binding.tvUsernameProfile.text = childSnapshot.child("firstName").getValue(String::class.java) + " " + childSnapshot.child("lastName").getValue(String::class.java)
+                            binding.tvUsernameProfile.text = getString(
+                                R.string.username_format,
+                                childSnapshot.child("firstName").getValue(String::class.java),
+                                childSnapshot.child("lastName").getValue(String::class.java))
                             binding.tvSpecialityProfile.text = childSnapshot.child("speciality").getValue(String::class.java)
                             binding.tvBusinessProfile.text = childSnapshot.child("business").getValue(String::class.java)
                             binding.tvAddressBProfile.text = childSnapshot.child("address").getValue(String::class.java)
@@ -109,7 +123,10 @@ class Profile : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         for (childSnapshot in snapshot.children) {
-                            binding.tvUsernameProfile.text = childSnapshot.child("firstName").getValue(String::class.java) + " " + childSnapshot.child("lastName").getValue(String::class.java)
+                            binding.tvUsernameProfile.text = getString(
+                                R.string.username_format,
+                                childSnapshot.child("firstName").getValue(String::class.java),
+                                childSnapshot.child("lastName").getValue(String::class.java))
                             binding.tvSpecialityProfile.text = childSnapshot.child("speciality").getValue(String::class.java)
                             binding.tvBusinessProfile.text = childSnapshot.child("business").getValue(String::class.java)
                             binding.tvAddressBProfile.text = childSnapshot.child("address").getValue(String::class.java)
@@ -134,33 +151,34 @@ class Profile : AppCompatActivity() {
 
     }
 
+    @Deprecated("Use registerForActivityResult and ActivityResultCallback instead")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_PROFILE_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+        if (requestCode == pickProfileRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
             getRealPathFromUri(uri!!)
             val fileRef = storage.getReference("users/${sharedPreferencesId.getInt("spId", 0)}/profile.png")
 
-            fileRef.putFile(uri!!)
+            fileRef.putFile(uri)
                 .addOnSuccessListener {
                     getImageProfile()
-                    Toast.makeText(this, "Archivo subido exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "File uploaded successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error al subir el archivo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to upload file", Toast.LENGTH_SHORT).show()
                 }
-        } else if (requestCode == PICK_BANNER_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
+        } else if (requestCode == pickBannerRequestCode && resultCode == Activity.RESULT_OK && data != null) {
             val uri = data.data
             getRealPathFromUri(uri!!)
             val fileRef = storage.getReference("users/${sharedPreferencesId.getInt("spId", 0)}/banner.png")
 
-            fileRef.putFile(uri!!)
+            fileRef.putFile(uri)
                 .addOnSuccessListener {
                     getImageBanner()
-                    Toast.makeText(this, "Archivo subido exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "File uploaded successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error al subir el archivo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Failed to upload file", Toast.LENGTH_SHORT).show()
                 }
         }
     }
@@ -173,7 +191,7 @@ class Profile : AppCompatActivity() {
             binding.pbBannerProfile.visibility = View.VISIBLE
             val localFile2 = File.createTempFile("images1", "jpg")
             profile.getFile(localFile2)
-                .addOnSuccessListener { bytes ->
+                .addOnSuccessListener {
                     binding.pbBannerProfile.visibility = View.GONE
                     val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
                     Glide.with(this)
@@ -181,7 +199,7 @@ class Profile : AppCompatActivity() {
                         .centerCrop()
                         .into(binding.ivBannerProfile)
                 }
-                .addOnFailureListener { exception -> }
+                .addOnFailureListener {}
         } else {
             val ref = FirebaseDatabase.getInstance().getReference("users").orderByChild("email").equalTo(email)
             ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -210,7 +228,7 @@ class Profile : AppCompatActivity() {
             binding.pbProfileProfile.visibility = View.VISIBLE
             val localFile2 = File.createTempFile("images1", "jpg")
             profile.getFile(localFile2)
-                .addOnSuccessListener { bytes ->
+                .addOnSuccessListener {
                     binding.pbProfileProfile.visibility = View.GONE
                     val bitmap = BitmapFactory.decodeFile(localFile2.absolutePath)
                     Glide.with(this)
@@ -218,7 +236,7 @@ class Profile : AppCompatActivity() {
                         .centerCrop()
                         .into(binding.ivProfileProfile)
                 }
-                .addOnFailureListener { exception -> }
+                .addOnFailureListener {}
         } else {
             val ref = FirebaseDatabase.getInstance().getReference("users").orderByChild("email").equalTo(email)
             ref.addListenerForSingleValueEvent(object : ValueEventListener {

@@ -71,7 +71,7 @@ class Home : AppCompatActivity() {
             startActivity(Intent(this, Presentation::class.java))
         }
 
-        //Deslizar con el dedo para navegar por el BottomNavigationView
+        //Swipe to navigate the BottomNavigationView
         binding.viewPager.adapter = ViewPagerAdapter(supportFragmentManager)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageSelected(position: Int) {
@@ -86,8 +86,8 @@ class Home : AppCompatActivity() {
             override fun onPageScrollStateChanged(state: Int) {}
         })
 
-        binding.homeNavigation.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
+        binding.homeNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
                 R.id.nav_home -> {
                     binding.viewPager.currentItem = 0
                     typeUser()
@@ -107,11 +107,9 @@ class Home : AppCompatActivity() {
             }
         }
 
-        //Deslizar y ocultar BottomNavigationView
         val layoutParams = binding.homeNavigation.layoutParams as CoordinatorLayout.LayoutParams
         layoutParams.behavior = BottomNavigationBehavior()
 
-        //Acceder a botones del DrawerHeader
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         val headerView = navigationView.getHeaderView(0)
         val btn = headerView.findViewById<MaterialButton>(R.id.btnProfile_drawer_header)
@@ -130,7 +128,6 @@ class Home : AppCompatActivity() {
             }
         }
 
-        //Implementar DrawerLayout deslizando el dedo
         val gestureDetector = GestureDetectorCompat(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
                 if (e1.x < e2.x) {
@@ -156,14 +153,11 @@ class Home : AppCompatActivity() {
 
     }
 
-    //Regresar y minimizar la app
+    @Deprecated("Use moveTaskToBack() instead", replaceWith = ReplaceWith("moveTaskToBack(true)"))
     override fun onBackPressed() {
         moveTaskToBack(true)
-        //finishAffinity() // Cierra todas las actividades en segundo plano
-        //exitProcess(0) // Cierra la aplicación completamente
     }
 
-    //Cargar datos del HeaderDrawer
     private fun getPhotoDrawer() {
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         val headerView = navigationView.getHeaderView(0)
@@ -171,8 +165,7 @@ class Home : AppCompatActivity() {
         val username = headerView.findViewById<TextView>(R.id.tvName_drawer_header)
         val email = headerView.findViewById<TextView>(R.id.tvEmail_drawer_header)
 
-        var table = ""
-        table = if (sharedPreferencesType.getString("spType", "") == "company"){
+        val table = if (sharedPreferencesType.getString("spType", "") == "company"){
             "company"
         } else {
             "users"
@@ -185,7 +178,7 @@ class Home : AppCompatActivity() {
                         if (sharedPreferencesType.getString("spType", "") == "company"){
                             username.text = childSnapshot.child("name").getValue(String::class.java)
                         } else {
-                            username.text = childSnapshot.child("firstName").getValue(String::class.java) + " " + childSnapshot.child("lastName").getValue(String::class.java)
+                            username.text = getString(R.string.username_format, childSnapshot.child("firstName").getValue(String::class.java), childSnapshot.child("lastName").getValue(String::class.java))
                         }
                         email.text = childSnapshot.child("email").getValue(String::class.java)
                     }
@@ -198,14 +191,14 @@ class Home : AppCompatActivity() {
         val profile = storage.getReference("${table}/${sharedPreferencesId.getInt("spId", 0)}/profile.png")
         val localFile = File.createTempFile("images1", "jpg")
         profile.getFile(localFile)
-            .addOnSuccessListener { bytes ->
+            .addOnSuccessListener {
                 val bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                 Glide.with(this)
                     .load(bitmap)
                     .centerCrop()
                     .into(photo)
             }
-            .addOnFailureListener { exception -> }
+            .addOnFailureListener { }
     }
 }
 

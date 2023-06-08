@@ -30,12 +30,16 @@
     <string name="txt2_sign_fullname">Last name</string>
     <string name="label_sign_fullname">By clicking Next Step, you agree to the Job Bank User Agreement, Privacy Policy, and Cookie Policy. For phone number signups we will send a verfication code via email</string>
     <string name="btn_sign_fullname">Next step</string>
+    <string name="nulll">null</string>
+    <string name="lbCompany">Enter your company name</string>
     <!-- Sign_Data_Job  -->
     <string name="title_sign_data_job">About you</string>
     <string name="subtitle_sign_data_job">Your profile helps you discover people and opportunities</string>
     <string name="txt2_sign_data_job">Location</string>
     <string name="txt3_sign_data_job">Speciality</string>
     <string name="txt4_sign_data_job">Website</string>
+    <string name="lbUniversity">University</string>
+    <string name="lbLastCompany">Last company</string>
     <!-- Sign_Registration -->
     <string name="title_sign_registration">Registration</string>
     <string name="subtitle_sign_registration">Enter your email address, your phone and create a password</string>
@@ -51,6 +55,7 @@
     <string name="label1_sign_verification">Didnt receive the email?</string>
     <string name="label2_sign_verification">Resend</string>
     <string name="btn_sign_verification">Check verification</string>
+    <string name="welcome_message">Hi %s!</string>
     <!-- Sign_Sucessfull -->
     <string name="title_sign_sucessfull">Account Successfully Created</string>
     <string name="subtitle_sign_sucessfull">You have created your account successfully</string>
@@ -97,6 +102,9 @@
     <!-- Profile -->
     <string name="search_profile">Search profile</string>
     <string name="message_profile">Mesagge</string>
+    <string name="lbFollow">Follow</string>
+    <string name="lbConnect">Connect</string>
+    <string name="username_format">%1$s %2$s</string>
     <!-- Company -->
     <string name="search_company">Search company</string>
     <string name="message_company">Learn more</string>

@@ -3,7 +3,6 @@ package com.example.jobbank.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.jobbank.R
 import com.example.jobbank.databinding.ActivityPresentationBinding
 
 class Presentation : AppCompatActivity() {
@@ -20,7 +19,7 @@ class Presentation : AppCompatActivity() {
         }
 
         binding.btnSignPresentation.setOnClickListener {
-            startActivity(Intent(this, Sign_Type_User::class.java))
+            startActivity(Intent(this, SignTypeUser::class.java))
         }
     }
 }

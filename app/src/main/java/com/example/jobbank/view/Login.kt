@@ -1,16 +1,13 @@
 package com.example.jobbank.view
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import com.example.jobbank.databinding.ActivityLoginBinding
-import com.example.jobbank.model.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -39,7 +36,7 @@ class Login : AppCompatActivity() {
             login()
         }
         binding.tvSignupPresentation.setOnClickListener{
-            startActivity(Intent(this@Login, Sign_Type_User::class.java))
+            startActivity(Intent(this@Login, SignTypeUser::class.java))
         }
     }
 
@@ -51,15 +48,15 @@ class Login : AppCompatActivity() {
         emailRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    sucess(snapshot)
+                    success(snapshot)
                 } else {
                     val ref = Firebase.database.getReference("company").orderByChild("email").equalTo(binding.etUsernameLogin.text.toString())
                     ref.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
                             if (snapshot.exists()) {
-                                sucess(snapshot)
+                                success(snapshot)
                             } else {
-                                startActivity(Intent(this@Login, Sign_Type_User::class.java))
+                                startActivity(Intent(this@Login, SignTypeUser::class.java))
                             }
                         }
                         override fun onCancelled(error: DatabaseError) {}
@@ -70,7 +67,7 @@ class Login : AppCompatActivity() {
         })
     }
 
-    private fun sucess(snapshot: DataSnapshot){
+    private fun success(snapshot: DataSnapshot){
         for (childSnapshot in snapshot.children) {
             val id = childSnapshot.child("id").getValue(Int::class.java)
             val pass = childSnapshot.child("password").getValue(String::class.java)
