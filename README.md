@@ -37,3 +37,6 @@
   <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest.jpg"alt="JobRequest" style="width: 25%;">
   <img src="https://github.com/Jerson-Miranda/JobBank/blob/master/others/images/JobRequest2.jpg"alt="JobRequest" style="width: 25%;">
 </div>
+
+
+
